@@ -14,7 +14,8 @@ import React from 'react';
                  <p><strong>Price:</strong> ${product.price}</p>
                  <p><strong>Rating:</strong> {product.rating}</p>
                  <p>{product.description.slice(0, 100)}...</p>
-                 <Link to={`/product/${product.id}`}>View Details</Link>
+                 {/* <Link to={`/product/${product.id}`}>View Details</Link> */}
+                  <button onClick={() => console.log(`Added ${product.title} to cart`)}>Add to Cart</button>
                </div>
              ))}
            </div>

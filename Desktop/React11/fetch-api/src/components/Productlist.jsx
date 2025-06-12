@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ProductCard from './ProductCard';
 
 // import { products } from './data';
 const ProductList = () => {
@@ -17,6 +16,17 @@ const ProductList = () => {
   const handleAddToCart = (product) => {
     setCart([...cart, product]);
     console.log('Added to cart:', product.name);
+    const dataToSave = {name:product.title, id:product.id, description:product.description};
+    const json = JSON.stringify(dataToSave, null, 2)
+    console.log(json)
+    const respose = fetch('http://localhost:3000/products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToSave)
+    })
+
   };
 
   const filteredProducts = products.filter((product) => {
